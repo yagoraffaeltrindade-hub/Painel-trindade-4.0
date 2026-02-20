@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Painel Trindade</title>
+
+<style>
+body {
+    background:#050d16;
+    font-family: Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:#fff;
+}
+
+.panel {
+    width:360px;
+    background:linear-gradient(180deg,#0f2d46,#071726);
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 0 30px #00c8ff;
+}
+
+.title {
+    text-align:center;
+    font-size:22px;
+    color:#00c8ff;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.tabs {
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.tab {
+    flex:1;
+    padding:8px;
+    text-align:center;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.tab.on {
+    background:#00c8ff;
+    color:#000;
+}
+
+.tab.off {
+    background:#000;
+    color:#00c8ff;
+    border:1px solid #00c8ff;
+}
+
+.check {
+    margin:8px 0;
+    font-size:14px;
+}
+
+.check input {
+    accent-color:#00c8ff;
+}
+
+.slider {
+    margin:12px 0;
+}
+
+.slider label {
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+}
+
+input[type=range] {
+    width:100%;
+}
+
+.btn {
+    margin-top:15px;
+    background:#00c8ff;
+    border:none;
+    width:100%;
+    padding:12px;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.btn:active {
+    transform:scale(0.97);
+}
+
+.status {
+    margin-top:10px;
+    text-align:center;
+    color:#00ff99;
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+    <div class="title">Painel Trindade</div>
+
+    <div class="tabs">
+        <div class="tab on">Free Fire</div>
+        <div class="tab off">Free Fire Max</div>
+    </div>
+
+    <div class="check"><input type="checkbox" checked> Auxílio 100%</div>
+    <div class="check"><input type="checkbox" checked> Ativar precisão</div>
+    <div class="check"><input type="checkbox" checked> FPS</div>
+
+    <div class="slider">
+        <label>Mim FOV <span id="fovValue">50%</span></label>
+        <input type="range" min="0" max="100" value="50" 
+        oninput="fovValue.innerText=this.value+'%'">
+    </div>
+
+    <div class="slider">
+        <label>Nível de precisão <span id="precValue">50</span></label>
+        <input type="range" min="0" max="100" value="50"
+        oninput="precValue.innerText=this.value">
+    </div>
+
+    <div class="check"><input type="checkbox" checked> Ativar aimbot</div>
+    <div class="check"><input type="checkbox" checked> No recoil</div>
+
+    <button class="btn" onclick="inject()">Injetar no jogo</button>
+
+    <div class="status" id="status">✔ Injetado com sucesso</div>
+</div>
+
+<script>
+function inject(){
+    const status = document.getElementById("status");
+    status.style.display = "block";
+    setTimeout(()=>{status.style.display="none"},3000);
+}
+</script>
+
+</body>
+  </html>
